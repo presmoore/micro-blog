@@ -29,11 +29,11 @@ end
 post "/sign_in" do
   @user = User.where(username: params[:user][:username]).first
 
-  if @user.password == params[:user][:password]
+  if @user && @user.password == params[:user][:password]
     session[:user_id] = @user.id
     redirect "/"
   else
-    "Your username or password did not match"
+    redirect "/sign_in"
   end
 end
 
@@ -92,6 +92,14 @@ post "/update_password" do
   else
     "Your new password & confirmation did not match, try again"
   end
+end
+
+
+post "/delete" do
+  @current_user = User.find(session[:user_id])
+  @current_user.delete
+  session[:user_id] = nil
+  redirect "/"
 end
 
 
