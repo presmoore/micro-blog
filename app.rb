@@ -25,11 +25,11 @@ get "/" do
   end
 end
 
-get "/sign-in" do
+get "/sign_in" do
   erb :sign_in
 end
 
-post "/sign-in" do
+post "/sign_in" do
   @user = User.where(username: params[:user][:username]).first
 
   if @user.password == params[:user][:password]
@@ -40,7 +40,7 @@ post "/sign-in" do
   end
 end
 
-post "/sign-up" do
+post "/sign_up" do
   confirmation = params[:confirm_password]
 
   if confirmation == params[:user][:password]
