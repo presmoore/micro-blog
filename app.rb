@@ -14,9 +14,6 @@ def current_user
     end
 end
 
-
-
-
 get "/" do
   if current_user 
     erb :home 
@@ -50,6 +47,97 @@ post "/sign_up" do
     "Your password & confirmation did not match, try again"
   end
 end
+
+
+
+
+
+# SETTINGS PAGE
+
+get "/settings" do
+  erb :settings
+end
+
+post "/update_first" do
+  @current_user = User.find(session[:user_id])
+  @current_user.update_attributes(firstname: params[:user][:firstname])
+  redirect "/settings"
+end
+
+post "/update_last" do
+  @current_user = User.find(session[:user_id])
+  @current_user.update_attributes(lastname: params[:user][:lastname])
+  redirect "/settings"
+end
+
+post "/update_username" do
+  @current_user = User.find(session[:user_id])
+  @current_user.update_attributes(username: params[:user][:username])
+  redirect "/settings"
+end
+
+post "/update_email" do
+ @current_user = User.find(session[:user_id])
+  @current_user.update_attributes(email: params[:user][:email])
+  redirect "/settings"
+end
+
+post "/update_password" do
+  @current_user = User.find(session[:user_id])
+  confirm = params[:confirm_new_password]
+
+  if confirm == params[:user][:new_password]
+    @current_user.update_attributes(password: params[:user][:new_password])
+    redirect "/settings"
+  else
+    "Your new password & confirmation did not match, try again"
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
