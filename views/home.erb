@@ -1,4 +1,4 @@
-<a href="/sign_in">Sign Out</a>
+<a action="/sign_out" href="/sign_in">Sign Out</a>
 
 <form method="POST" action="/new_blog" name>
   <input type="text" name="[post]title" placeholder="Title">
@@ -10,13 +10,13 @@
 <!--Google "Active Record order method" to order the posts in order-->
 
 
-<% @all_posts.each do |post|%>
 
-<h3> <%= post.user.username %> </h3>
-<h3> <%= post.title %> </h3>
-<p> <%= post.textfield %> </p>
+<% @all_posts.reverse.each do |p| %>
+
+<h3> <%= p.user.username %> </h3>
+<h3> <%= p.title %> </h3>
+<p> <%= p.textfield %> </p>
 
 <% end %>
-
 
 

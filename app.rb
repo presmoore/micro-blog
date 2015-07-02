@@ -24,6 +24,19 @@ get "/" do
   end
 end
 
+post "/new_blog" do
+  current_user.posts.create(params[:post])
+  redirect "/"
+end
+
+# Reference '/sign_up' User.create for Post.create (params)
+
+post "/sign_out" do 
+  session[:user_id] = nil
+  redirect "/sign_in"
+end
+
+
 get "/sign_in" do
   @title = "Sign In"
   erb :sign_in
@@ -45,6 +58,7 @@ post "/sign_up" do
 
   if confirmation == params[:user][:password]
     @user = User.create(params[:user])
+    session[:user_id] = @user.id
     redirect "/"
   else
     "Your password & confirmation did not match, try again"
@@ -81,7 +95,7 @@ post "/update_username" do
 end
 
 post "/update_email" do
- @current_user = User.find(session[:user_id])
+  @current_user = User.find(session[:user_id])
   @current_user.update_attributes(email: params[:user][:email])
   redirect "/settings"
 end
@@ -105,22 +119,6 @@ post "/delete" do
   session[:user_id] = nil
   redirect "/"
 end
-
-
-# HOME PAGE
-
-
-# Reference '/sign_up' User.create for Post.create (params)
-
-
-post "/new_blog" do
-  @current_user = User.find(session[:user_id])
-  @current_user.username = params[:post][:username]
-end
-
-
-
-
 
 get "/profile" do
   @title = "Profile"
