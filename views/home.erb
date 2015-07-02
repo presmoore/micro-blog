@@ -1,2 +1,24 @@
 <a href="/sign_in">Sign Out</a>
 
+<h1>Feed</h1>
+
+<form method="POST" action="/new_blog" name>
+  <input type="text" name="[post]title" placeholder="Title">
+  <input type="text" name="[post]textfield" placeholder="Comments">
+  <input type="submit">
+</form>
+
+
+<!--Google "Active Record order method" to order the posts in order-->
+
+
+<% @all_posts.each do |post|%>
+
+<h3> <%= post.user.username %> </h3>
+<h3> <%= post.title %> </h3>
+<p> <%= post.textfield %> </p>
+
+<% end %>
+
+
+

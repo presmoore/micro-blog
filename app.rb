@@ -2,7 +2,7 @@ require 'sinatra'
 require 'sinatra/activerecord'
 require './models.rb'
 
-set :database, "sqlite3:psblog.sqlite3"
+set :database, "sqlite3:psblog_redo.sqlite3"
 
 set :sessions, true
 
@@ -16,7 +16,8 @@ end
 
 get "/" do
   if current_user 
-    erb :home 
+    @all_posts = Post.all
+    erb :home
   else
     redirect "/sign_in"
   end
@@ -102,6 +103,17 @@ post "/delete" do
   redirect "/"
 end
 
+
+# HOME PAGE
+
+
+# Reference '/sign_up' User.create for Post.create (params)
+
+
+post "/new_blog" do
+  @current_user = User.find(session[:user_id])
+  @current_user.username = params[:post][:username]
+end
 
 
 
