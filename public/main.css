@@ -1,0 +1,56 @@
+/*LAYOUT*/
+body {
+  font-family: 'Poiret One', cursive;
+}
+
+#nav {
+  position: fixed;
+  margin-top: 20%;
+  
+}
+.navbar {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  height: 22px;
+  width: 80px;
+  margin-bottom: 30px;
+  margin-left: 5px;
+  padding-left: 12px;
+}
+
+#nav a {
+  text-decoration: none;
+
+}
+}
+
+a:visited {
+  color: white;
+}
+
+#title {
+  text-align: center;
+
+}
+
+#wrapper {
+  width: 60%;
+  min-height: 800px;
+  border-radius: 10%;
+  background-color: black;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 
+}
+
+/*HOME/FEED*/
+
+
+
+/*SETTINGS PAGE*/
+
+
+
+/*SIGN-IN and SIGN-UP*/

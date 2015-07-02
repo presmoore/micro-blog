@@ -15,6 +15,7 @@ def current_user
 end
 
 get "/" do
+  @title = "Feed"
   if current_user 
     @all_posts = Post.all
     erb :home
@@ -24,6 +25,7 @@ get "/" do
 end
 
 get "/sign_in" do
+  @title = "Sign In"
   erb :sign_in
 end
 
@@ -56,6 +58,7 @@ end
 # SETTINGS PAGE
 
 get "/settings" do
+  @title = "Account Settings"
   erb :settings
 end
 
@@ -117,6 +120,12 @@ end
 
 
 
+
+
+get "/profile" do
+  @title = "Profile"
+  erb :profile
+end
 
 
 

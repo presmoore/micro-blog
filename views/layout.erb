@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
   <meta charset="UTF-8">
   <title> <%= @title %> </title>
+
+    <link rel="stylesheet" type="text/css" href="main.css">
+  <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TweenMax.min.js"></script>
 </head>
 <body>
-  
+
+  <div id="nav">
+    
+    <p class="navbar"><a href="/">Feed</a> </p>
+
+    <p class="navbar"><a href="/profile">Profile</a></p>
+
+    <p class="navbar"><a href="/settings">Settings</a></p>
+
+  </div>
+
+  <div id="title"> <h1> <%= @title %> </h1> </div>
+
+  <div id="wrapper">
+    
+
   <%= yield %>
 
+
+ </div>
+
+
+<script type="text/javascript">
+
+TweenMax.staggerFrom(".navbar", 2, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.2);
+
+
+TweenMax.staggerFrom(".socialbar", 2, {scale:0.5, opacity:0, delay:0.5, ease:Elastic.easeOut, force3D:true}, 0.2);
+
+
+
+</script>
 </body>
 </html>
