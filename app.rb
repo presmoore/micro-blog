@@ -6,7 +6,9 @@ set :database, "sqlite3:psblog_redo.sqlite3"
 
 set :sessions, true
 
+configure(:development) {set :database, "sqlite3:blog.sqlite3"}
 
+# to use Rackflash you must configure/run it here 
 
 def current_user
     if session[:user_id]
