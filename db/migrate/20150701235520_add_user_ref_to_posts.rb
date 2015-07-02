@@ -3,3 +3,5 @@ class AddUserRefToPosts < ActiveRecord::Migration
     add_reference :posts, :user, index: true
   end
 end
+
+

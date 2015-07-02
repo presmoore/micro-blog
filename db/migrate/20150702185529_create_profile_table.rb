@@ -1,5 +1,7 @@
 class CreateProfileTable < ActiveRecord::Migration
   def change
-    add_reference :users, :profile, index: true
+    create_table :profile do |t|
+      t.string :bio, limit: 100
+    end
   end
 end

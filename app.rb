@@ -6,7 +6,7 @@ set :database, "sqlite3:psblog_redo.sqlite3"
 
 set :sessions, true
 
-configure(:development) {set :database, "sqlite3:blog.sqlite3"}
+configure(:production) {set :database, "sqlite3:blog.sqlite3"}
 
 # to use Rackflash you must configure/run it here 
 
@@ -17,6 +17,7 @@ def current_user
 end
 
 get "/" do
+  #session[:user_id] = nil
   @title = "Feed"
   if current_user 
     @all_posts = Post.all
@@ -124,6 +125,7 @@ end
 
 get "/profile" do
   @title = "Profile"
+  @user_posts = Post.where({user_id: current_user.id})
   erb :profile
 end
 

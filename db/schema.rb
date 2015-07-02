@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701235520) do
+ActiveRecord::Schema.define(version: 20150702190309) do
 
   create_table "posts", force: :cascade do |t|
     t.string  "title"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20150701235520) do
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
+
+  create_table "profile", force: :cascade do |t|
+    t.string  "bio",     limit: 100
+    t.integer "user_id"
+  end
+
+  add_index "profile", ["user_id"], name: "index_profile_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string "firstname"
