@@ -12,11 +12,11 @@
 
 
 <div id="scroll">
-<% @all_posts.reverse.each do |p| %>
+<% @last_ten_posts.reverse.each do |p| %>
 
 <br/>
+<h3> <%= p.user.username %>: </h3>
 <div id="box">
-<h3> <%= p.user.username %> </h3>
 <h3> <%= p.title %> </h3>
 <p> <%= p.textfield %> </p>
 </div>

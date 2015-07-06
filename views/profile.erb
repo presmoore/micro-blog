@@ -9,15 +9,16 @@ email: <%= current_user.email %>
 <br>
 <br>
 <h1>POSTS:</h1>
-<br>
+
 
 
 <div id="scroll">
 <% @user_posts.reverse.each do |p| %>
 
-<br/>
+
+
+
 <div id="box">
-<h3> <%= p.user.username %> </h3>
 <h3> <%= p.title %> </h3>
 <p> <%= p.textfield %> </p>
 

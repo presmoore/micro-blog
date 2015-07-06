@@ -17,10 +17,10 @@ def current_user
 end
 
 get "/" do
-  #session[:user_id] = nil
   @title = "Feed"
   if current_user 
-    @all_posts = Post.all
+    # @all_posts = Post.all
+    @last_ten_posts = Post.last(10)
     erb :home
   else
     redirect "/sign_in"

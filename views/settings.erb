@@ -1,3 +1,10 @@
+<%= current_user.firstname %> <%= current_user.lastname %>
+<br>
+<%= current_user.username %>
+<br>
+<%= current_user.email %>
+<br><br>
+
 <form method="POST" action="/update_first">
   <input type="text" placeholder="New First Name" name="[user]firstname">
   <input type="submit">
