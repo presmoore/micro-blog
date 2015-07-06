@@ -1,6 +1,11 @@
 /*LAYOUT*/
 body {
   font-family: 'Poiret One', cursive;
+  background-image: url(/moonwalk.jpg);
+  background-size:   cover;                      
+  background-repeat: no-repeat;
+  background-position: center center; 
+  top: 0; 
 }
 
 #nav {
@@ -17,12 +22,10 @@ body {
   margin-bottom: 30px;
   margin-left: 5px;
   padding-left: 12px;
-}
+} 
 
 #nav a {
   text-decoration: none;
-
-}
 }
 
 a:visited {
@@ -30,22 +33,39 @@ a:visited {
 }
 
 #title {
-  text-align: center;
-
+ color: white;
+ text-align: center;
 }
 
 #wrapper {
-  width: 60%;
-  min-height: 800px;
-  border-radius: 10%;
-  background-color: black;
-  color: white;
-  margin: 0 auto;
-  text-align: center;
-  margin-top: 
+ width: 45%;
+ min-height: 600px;
+ border-radius: 10%;
+ background-color: white;
+ color: black;
+ margin: 0 auto;
+ text-align: center;
+ margin-top: 
 }
 
 /*HOME/FEED*/
+
+
+#scroll {
+ overflow-y: scroll; 
+ height:450px;
+ overflow: auto; 
+}
+
+#box {
+ margin-top: 5%; 
+ border-style: solid;
+ border-color: black;
+ margin-left: 35px;
+ height: 120px;
+ width: 85%;
+
+}
 
 
 

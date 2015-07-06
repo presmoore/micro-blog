@@ -118,6 +118,7 @@ end
 
 post "/delete" do
   @current_user = User.find(session[:user_id])
+  current_user.posts.destroy_all
   @current_user.delete
   session[:user_id] = nil
   redirect "/"
