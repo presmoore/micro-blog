@@ -28,6 +28,10 @@ body {
   text-decoration: none;
 }
 
+a {
+  color: white;
+}
+
 a:visited {
   color: white;
 }

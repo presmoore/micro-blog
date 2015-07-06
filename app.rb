@@ -34,7 +34,7 @@ end
 
 # Reference '/sign_up' User.create for Post.create (params)
 
-post "/sign_out" do 
+get "/sign_out" do 
   session[:user_id] = nil
   redirect "/sign_in"
 end
